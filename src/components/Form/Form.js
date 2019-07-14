@@ -1,37 +1,65 @@
 import React from 'react';
-import './Form.css';
+import styles from './Form.module.scss';
 
 const Form = ({ submitFn }) => (
-  <div className='form__wrapper'>
+  <div className={styles.wrapper}>
     <h2>Add new twitter account</h2>
-    <form className='form__form' onSubmit={submitFn}>
-      <div className='form__item'>
+    <form autoComplete='off' className={styles.form} onSubmit={submitFn}>
+      <div className={styles.formItem}>
         <input
+          className={styles.input}
           type='text'
           name='name'
           id='name'
+          required
           placeholder=' '
           maxLength='30'
         />
-        <label htmlFor='name'>Name</label>
-        <div className='form__item__bar' />
+        <label className={styles.label} htmlFor='name'>
+          Name
+        </label>
+        <div className={styles.formItemBar} />
       </div>
-      <div className='form__item'>
-        <input type='text' name='link' id='link' placeholder=' ' />
-        <label htmlFor='link'>Link</label>
-        <div className='form__item__bar' />
+      <div className={styles.formItem}>
+        <input
+          className={styles.input}
+          type='text'
+          name='link'
+          id='link'
+          required
+          placeholder=' '
+        />
+        <label className={styles.label} htmlFor='link'>
+          Link
+        </label>
+        <div className={styles.formItemBar} />
       </div>
-      <div className='form__item'>
-        <input type='text' name='image' id='image' placeholder=' ' />
-        <label htmlFor='image'>Image</label>
-        <div className='form__item__bar' />
+      <div className={styles.formItem}>
+        <input
+          className={styles.input}
+          type='text'
+          name='image'
+          id='image'
+          placeholder=' '
+        />
+        <label className={styles.label} htmlFor='image'>
+          Image
+        </label>
+        <div className={styles.formItemBar} />
       </div>
-      <div className='form__item'>
-        <textarea name='description' id='description' placeholder=' ' />
-        <label htmlFor='description'>Description</label>
-        <div className='form__item__bar' />
+      <div className={styles.formItem}>
+        <textarea
+          className={styles.textarea}
+          name='description'
+          id='description'
+          placeholder=' '
+        />
+        <label className={styles.label} htmlFor='description'>
+          Description
+        </label>
+        <div className={styles.formItemBar} />
       </div>
-      <button className='form__button' type='submit'>
+      <button className={styles.button} type='submit'>
         add new item
       </button>
     </form>

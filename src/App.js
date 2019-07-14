@@ -5,31 +5,11 @@ import Form from './components/Form/Form';
 
 const initialStateItems = [
   {
-    image: 'https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg',
+    image:
+      'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/032/medium/oapgW_Fp_400x400.jpg',
     name: 'Dan Abramov',
-    description: 'Working on @reactjs. The demo guy.',
+    description: 'Te creator of React',
     twitterLink: 'https://twitter.com/dan_abramov'
-  },
-  {
-    image: 'https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg',
-    name: 'Ryan Florence',
-    description:
-      'Making React accessible for users and developers at https://reach.tech . Online learning, workshops, OSS, and consulting.',
-    twitterLink: 'https://twitter.com/ryanflorence'
-  },
-  {
-    image: 'https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg',
-    name: 'Michael Jackson',
-    description:
-      'Maker. Co-author of React Router. Working on @ReactTraining. Created @unpkg. Head over heels for @cari.',
-    twitterLink: 'https://twitter.com/mjackson'
-  },
-  {
-    image: 'https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg',
-    name: 'Kent C. Dodds',
-    description:
-      'Making software development more accessible · Husband, Father, Latter-day Saint, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters · #JS',
-    twitterLink: 'https://twitter.com/kentcdodds'
   }
 ];
 
@@ -40,10 +20,19 @@ class App extends React.Component {
 
   addItem = e => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    console.log(e.target[1].value);
-    console.log(e.target[2].value);
-    console.log(e.target[3].value);
+
+    const newItem = {
+      name: e.target[0].value,
+      twitterLink: e.target[1].value,
+      image: e.target[2].value,
+      description: e.target[3].value
+    };
+
+    this.setState(prevState => ({
+      items: [...prevState.items, newItem]
+    }));
+
+    e.target.reset();
   };
 
   render() {
