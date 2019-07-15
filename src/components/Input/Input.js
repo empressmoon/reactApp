@@ -11,6 +11,7 @@ const Input = ({ tag: Tag, name, label, maxLength }) => (
       id={name}
       maxLength={maxLength}
       placeholder=' '
+      required={name === 'image' ? false : true}
     />
     <label className={styles.label} htmlFor={name}>
       {label}
