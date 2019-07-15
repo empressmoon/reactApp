@@ -1,7 +1,10 @@
 import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
 import './index.css';
-import Form from './components/Form/Form';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ArticlesView from '../ArticlesView/ArticlesView';
+import NotesView from '../NotesView/NotesView';
+import TwittersView from '../TwittersView/TwittersView';
+import Navigation from '../../components/Navigation/Navigation';
 
 const initialStateItems = [
   {
@@ -13,7 +16,7 @@ const initialStateItems = [
   }
 ];
 
-class App extends React.Component {
+class Root extends React.Component {
   state = {
     items: [...initialStateItems]
   };
@@ -37,12 +40,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <ListWrapper items={this.state.items} />
-        <Form submitFn={this.addItem} />
-      </div>
+      <BrowserRouter>
+        <>
+          <Navigation />
+          <h1>Hello world</h1>
+          <Switch>
+            <Route exact path='/' component={TwittersView} />
+            <Route path='/articles' component={ArticlesView} />
+            <Route path='/notes' component={NotesView} />
+          </Switch>
+        </>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default Root;
